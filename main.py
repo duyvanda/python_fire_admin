@@ -1,5 +1,6 @@
 from heapq import merge
 from http.client import responses
+from operator import index
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -126,15 +127,46 @@ class UploadJsonFileToFirestore:
 # for res in responses:
 #     print(res.to_dict())
 
-import os
+
+responses = db.collection('phuongxa').get()
+print(len(responses))
+
+# for i in responses:
+#     print(i.to_dict())
+# for el, index in enumerate(responses):
+#     print(el, index)
+
+# print("len ",len(responses))
+# res_lst= []
+# for res in responses:
+#     phuongxa = res.to_dict()['TenPhuongXa']
+#     res_lst.append(phuongxa)
+
+# print(res_lst)
+
+
+# import os
 
 # print(os.getcwd()+'//TinhThanh.json')
 
-upfile = UploadJsonFileToFirestore('D:\python_firebase_admin\PhuongXa.json', 'add', 'phuongxa')
+# upfile = UploadJsonFileToFirestore('D:\python_firebase_admin\PhuongXa.json', 'add', 'phuongxa')
 
-upfile.upload()
+# upfile.upload()
 
-print("Done")
+# print(db.collection('phuongxa').getsize())
+
+# import json
+
+# json_data = json.dumps()
+
+# with open('PhuongXa.json', 'r', encoding='utf-8') as f:
+#     data = json.loads(f.read())
+
+# for index, el in enumerate(data):
+#     if index >= 10700:
+#         db.collection('phuongxa').add(el)
+
+print("Process Done")
 
 # https://firebase.google.com/docs/firestore/query-data/queries#python_28
 
